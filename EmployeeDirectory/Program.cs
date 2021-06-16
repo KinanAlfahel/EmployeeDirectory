@@ -4,27 +4,27 @@ namespace EmployeeDirectory
 {
     class Program
     {
+        static Payroll payroll = new Payroll();
+
         static void Main(string[] args)
         {
 
-            Robot robot = new Robot(12 , "Kalle");
-            Robot robot2 = new Robot();
-            robot2.Name = "Nisse";
-            //var name = robot.GetName();
+            //Employee employee = new Employee(name: "Kalle", salary: 345667);
+            SeedData();
 
-            var rName = robot.Name;
-            robot.Name = "Nytt namn";
+            Employee[] employees = payroll.GetEmplyees();
 
-            try
+            foreach (Employee employee in employees)
             {
-                 robot.Height = -55;
+                Console.WriteLine($"Name: {employee.Name} Salary: {employee.Salary}");
             }
-            catch (Exception ex)
-            {
-                //Handle
-                Console.WriteLine(ex.Message);
-            }
-       
+        }
+
+        private static void SeedData()
+        {
+            payroll.AddEmployee("Kalle", 20000);
+            payroll.AddEmployee("Nisse", 30000);
+            payroll.AddEmployee("Lisa", 40000);
         }
     }
 }
