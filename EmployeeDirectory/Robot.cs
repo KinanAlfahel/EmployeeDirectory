@@ -27,7 +27,10 @@ namespace EmployeeDirectory
 
         public string Name { get; set; }
 
+        public Robot()
+        {
 
+        }
 
         public Robot(int height, string name)
         {
