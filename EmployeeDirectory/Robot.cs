@@ -1,4 +1,6 @@
-﻿namespace EmployeeDirectory
+﻿using System;
+
+namespace EmployeeDirectory
 {
     public class Robot
     {
@@ -9,16 +11,27 @@
         public int Height
         {
             get { return height; }
-            set { height = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException(nameof(Height));
+                }
+                else
+                {
+                    height = value;
+                }
+            }
         }
 
 
         public string Name { get; set; }
-     
+
 
 
         public Robot(int height, string name)
         {
+            Height = height;
             Name = name;
         }
 

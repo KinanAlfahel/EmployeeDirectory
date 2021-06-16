@@ -8,7 +8,16 @@ namespace EmployeeDirectory
         {
             Robot robot = new Robot(12 , "Kalle");
             //var name = robot.GetName();
-            robot.Height = 25;
+
+            try
+            {
+                 robot.Height = -55;
+            }
+            catch (Exception ex)
+            {
+                //Handle
+                Console.WriteLine(ex.Message);
+            }
        
         }
     }
