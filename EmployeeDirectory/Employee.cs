@@ -1,6 +1,6 @@
 ﻿namespace EmployeeDirectory
 {
-    internal class Employee
+    internal class Employee 
     {
         public string Name { get; }
         public int Salary { get; }
@@ -9,6 +9,11 @@
         {
             this.Name = name;
             this.Salary = salary;
+        }
+
+        public override string ToString()
+        {
+            return $"Name: {Name} Salary: {Salary}";
         }
     }
 }

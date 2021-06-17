@@ -28,6 +28,7 @@ namespace EmployeeDirectory
         //Snippet propfull för att skapa ett property med bakomliggande fält.
         public int Height
         {
+            
             get { return height; }
             set
             {
@@ -79,6 +80,7 @@ namespace EmployeeDirectory
 
         //public void SetName(string newName)
         //{
+
         //    //Validate
         //    name = newName;
         //}
