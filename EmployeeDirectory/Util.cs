@@ -4,19 +4,19 @@ namespace EmployeeDirectory
 {
     public static class Util
     {
-        internal static string AskForString(string prompt)
+        internal static string AskForString(string prompt, IUI ui)
         {
             bool success = false;
             string answer;
 
             do
             {
-                Console.WriteLine(prompt);
-                answer = Console.ReadLine();
+                ui.Print(prompt);
+                answer = ui.GetInput();
 
                 if (string.IsNullOrWhiteSpace(answer))
                 {
-                    Console.WriteLine("You must enter a name");
+                   ui.Print("You must enter a name");
                 }
                 else
                 {
@@ -26,6 +26,11 @@ namespace EmployeeDirectory
             } while (!success);
 
             return answer;
+        }
+
+        internal static int AskForInt(string v, IUI ui)
+        {
+            throw new NotImplementedException();
         }
     }
 }

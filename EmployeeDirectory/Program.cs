@@ -4,9 +4,10 @@ namespace EmployeeDirectory
 {
     class Program
     {
-        
+
 
         static Payroll payroll = new Payroll();
+        static IUI ui = new ConsoleUI();
 
         static void Main(string[] args)
         {
@@ -15,8 +16,8 @@ namespace EmployeeDirectory
             do
             {
                 ShowMainMeny();
-               
-                switch (Console.ReadLine())
+
+                switch (ui.GetInput())
                 {
                     case "1":
                         AddEmployee();
@@ -28,7 +29,7 @@ namespace EmployeeDirectory
                         Environment.Exit(0);
                         break;
                     default:
-                        Console.WriteLine("Wrong input");
+                        ui.Print("Wrong input");
                         break;
                 }
 
@@ -41,33 +42,18 @@ namespace EmployeeDirectory
 
         private static void AddEmployee()
         {
-            Console.WriteLine("Add an employee");
-            string name = Util.AskForString("Name ");
-
-
-           
-            
-            bool success2 = false;
-            string salary;
-
             do
             {
-                Console.WriteLine("Salary: ");
-                salary = Console.ReadLine();
+                ui.Print("Add an employee, Q for exit");
+                string name = Util.AskForString("Name ", ui);
 
-                if (string.IsNullOrWhiteSpace(salary))
-                {
-                    Console.WriteLine("You must enter a salary");
-                }
-                else
-                {
-                    success2 = true;
-                }
+                if (name.Equals("Q")) break;
 
-            } while (!success2);
+                int salary = Util.AskForInt("Salary ", ui);
 
-            payroll.AddEmployee(name, int.Parse(salary));
+                payroll.AddEmployee(name, salary);
 
+            } while (true);
         }
 
         private static void PrintEmployees()
@@ -76,15 +62,15 @@ namespace EmployeeDirectory
 
             foreach (Employee employee in employees)
             {
-                Console.WriteLine(employee.ToString());
+                ui.Print(employee);
             }
         }
 
         private static void ShowMainMeny()
         {
-            Console.WriteLine("1. add employee");
-            Console.WriteLine("2. print employees");
-            Console.WriteLine("3. Quit");
+           ui.Print("1. add employee");
+           ui.Print("2. print employees");
+           ui.Print("3. Quit");
         }
 
         private static void SeedData()

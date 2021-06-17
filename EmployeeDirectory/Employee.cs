@@ -1,6 +1,6 @@
 ﻿namespace EmployeeDirectory
 {
-    internal class Employee 
+    public class Employee 
     {
         public string Name { get; }
         public int Salary { get; }
