@@ -10,10 +10,6 @@ namespace EmployeeDirectory
 
         static void Main(string[] args)
         {
-            Employee employee1 = new Employee("Test", 1000);
-            employee1.ToString();
-
-            //Employee employee = new Employee(name: "Kalle", salary: 345667);
             SeedData();
 
             do
@@ -23,7 +19,7 @@ namespace EmployeeDirectory
                 switch (Console.ReadLine())
                 {
                     case "1":
-
+                        AddEmployee();
                         break;
                     case "2":
                         PrintEmployees();
@@ -31,8 +27,8 @@ namespace EmployeeDirectory
                     case "3":
                         Environment.Exit(0);
                         break;
-
                     default:
+                        Console.WriteLine("Wrong input");
                         break;
                 }
 
@@ -40,6 +36,51 @@ namespace EmployeeDirectory
             } while (true);
 
 
+
+        }
+
+        private static void AddEmployee()
+        {
+            Console.WriteLine("Add an employee");
+            bool success = false;
+            string name;
+
+            do
+            {
+                Console.WriteLine("Name: ");
+                name = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    Console.WriteLine("You must enter a name");
+                }
+                else
+                {
+                    success = true;
+                }
+
+            } while (!success);  
+            
+            bool success2 = false;
+            string salary;
+
+            do
+            {
+                Console.WriteLine("Salary: ");
+                salary = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(salary))
+                {
+                    Console.WriteLine("You must enter a salary");
+                }
+                else
+                {
+                    success2 = true;
+                }
+
+            } while (!success2);
+
+            payroll.AddEmployee(name, int.Parse(salary));
 
         }
 
