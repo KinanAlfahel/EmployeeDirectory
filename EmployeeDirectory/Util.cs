@@ -16,7 +16,7 @@ namespace EmployeeDirectory
 
                 if (string.IsNullOrWhiteSpace(answer))
                 {
-                   ui.Print("You must enter a name");
+                   ui.Print("You must enter something");
                 }
                 else
                 {
@@ -28,9 +28,23 @@ namespace EmployeeDirectory
             return answer;
         }
 
-        internal static int AskForInt(string v, IUI ui)
+        internal static int AskForInt(string prompt, IUI ui)
         {
-            throw new NotImplementedException();
+            bool success = false;
+            int answer;
+
+            do
+            {
+                string input = AskForString(prompt, ui);
+                success =  int.TryParse(input, out answer) && answer > 0;
+
+                if (!success)
+                    ui.Print("Error");
+
+            } while (!success);
+
+            return answer;
+
         }
     }
 }

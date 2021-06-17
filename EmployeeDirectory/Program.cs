@@ -16,28 +16,28 @@ namespace EmployeeDirectory
             do
             {
                 ShowMainMeny();
-
-                switch (ui.GetInput())
-                {
-                    case "1":
-                        AddEmployee();
-                        break;
-                    case "2":
-                        PrintEmployees();
-                        break;
-                    case "3":
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        ui.Print("Wrong input");
-                        break;
-                }
-
+                UserInput();
 
             } while (true);
+        }
 
-
-
+        private static void UserInput()
+        {
+            switch (ui.GetInput())
+            {
+                case "1":
+                    AddEmployee();
+                    break;
+                case "2":
+                    PrintEmployees();
+                    break;
+                case "3":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    ui.Print("Wrong input");
+                    break;
+            }
         }
 
         private static void AddEmployee()
