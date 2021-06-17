@@ -42,24 +42,10 @@ namespace EmployeeDirectory
         private static void AddEmployee()
         {
             Console.WriteLine("Add an employee");
-            bool success = false;
-            string name;
+            string name = Util.AskForString("Name ");
 
-            do
-            {
-                Console.WriteLine("Name: ");
-                name = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(name))
-                {
-                    Console.WriteLine("You must enter a name");
-                }
-                else
-                {
-                    success = true;
-                }
-
-            } while (!success);  
+           
             
             bool success2 = false;
             string salary;
