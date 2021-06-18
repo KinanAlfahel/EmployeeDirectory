@@ -5,14 +5,16 @@ namespace EmployeeDirectory
 {
     internal class Payroll
     {
-
+        //private fält
         private List<Employee> payroll;
 
+        //Konstruktor
         public Payroll()
         {
             payroll = new List<Employee>();
         }
 
+        //Metoder
         public void AddEmployee(string name, int salary)
         {
             // validate

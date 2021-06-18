@@ -20,25 +20,27 @@ namespace EmployeeDirectory
 
         public void Print(Employee employee)
         {
+            //Overiden på ToString() som vi skrev i Employee klassen körs
+            //Console.WriteLine() kör automatiskt ToString() metoden
             Console.WriteLine(employee);
         }
     }
 
-    public class TestUI : IUI
-    {
-        public string GetInput()
-        {
-            throw new NotImplementedException();
-        }
+    //public class TestUI : IUI
+    //{
+    //    public string GetInput()
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
-        public void Print(Employee employee)
-        {
-            throw new NotImplementedException();
-        }
+    //    public void Print(Employee employee)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
-        public void Print(string message)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    //    public void Print(string message)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 }
